@@ -65,7 +65,7 @@ resetBtn.addEventListener("click", function(){
         //add initial colors to squares
         squares[i].style.backgroundColor = colors[i];
     }
-    messageDisplay.textContent="";
+    messageDisplay.textContent="Guess what color is the RGB below...";
     h1.style.backgroundColor = "#232323";
 
 })

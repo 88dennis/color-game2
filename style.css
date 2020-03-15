@@ -38,10 +38,6 @@ h2 {
     height: 30px;
 }
 
-#message {
-    color: black;
-}
-
 .selected {
     background-color: steelblue;
 }
