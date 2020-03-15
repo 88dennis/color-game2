@@ -1,0 +1,41 @@
+body {
+    background-color: #232323;
+}
+
+.square {
+    width: 30%;
+    background-color: purple;
+    padding-bottom: 30%;
+    display: inline-block;
+    margin-left: 1.66%;
+    margin-top: 1.66%;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+
+/* .mainWrap {
+    width: 100%;
+} */
+
+h1 {
+    color: white;
+}
+
+#stripe {
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    height: 30px;
+}
+
+#message {
+    color: black;
+}
+
+.selected {
+    background-color: steelblue;
+}
