@@ -21,6 +21,18 @@ let resetBtn = document.querySelector("#reset");
 let h1 = document.querySelector("h1");
 let easyBtn = document.querySelector("#easyBtn");
 let hardBtn = document.querySelector("#hardBtn");
+let modeBtns = document.querySelector(".mode");
+
+hardBtn.classList.add("selected");
+
+for(let i = 0; i < modeBtns.length; i++) {
+    modeBtns[i].addEventListener("clicked", function(){
+        modeBtns[i].classList.remove("selected");
+        // modeBtns[0].classList.remove("selected");
+        // modeBtns[1].classList.remove("selected");
+        this.classList.add("selected");
+    })
+}
 
 //HIDE THE THREE BOXES AND COLOR THE OTHER 3 BOXES
 easyBtn.addEventListener("click", function(){

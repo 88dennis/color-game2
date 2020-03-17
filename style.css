@@ -101,6 +101,7 @@ button {
     height: 150%;
     padding: 10px 20px 10px 20px;
     border-radius: 10px;
+    outline: none;
 }
 
 button:hover {
