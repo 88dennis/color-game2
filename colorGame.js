@@ -87,7 +87,8 @@ for(let i = 0; i < squares.length; i++) {
             resetBtn.textContent = "Play Again?";
         } else {
             //fade out the wrong ones
-            this.style.backgroundColor = "#232323";
+            this.style.backgroundColor = "white";
+            this.style.boxShadow = "none"
             //say try again
             messageDisplay.textContent = "Try Again!";
         }
@@ -98,6 +99,7 @@ for(let i = 0; i < squares.length; i++) {
 function changeColors(color){
     for( let i = 0; i < colors.length; i++) {
         squares[i].style.backgroundColor = color;
+        squares[i].style.boxShadow = "2px 0px 5px 2px rgb(15, 15, 15)";    
     }
 }
 
