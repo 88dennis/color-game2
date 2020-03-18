@@ -19,54 +19,83 @@ let colorDisplay = document.querySelector("#colorDisplay");
 let messageDisplay = document.querySelector("#message");
 let resetBtn = document.querySelector("#reset");
 let h1 = document.querySelector("h1");
-let easyBtn = document.querySelector("#easyBtn");
+// let easyBtn = document.querySelector("#easyBtn");
 let hardBtn = document.querySelector("#hardBtn");
-let modeBtns = document.querySelector(".mode");
+let modeBtns = document.getElementsByClassName("mode");
 
 hardBtn.classList.add("selected");
 
 for(let i = 0; i < modeBtns.length; i++) {
-    modeBtns[i].addEventListener("clicked", function(){
-        modeBtns[i].classList.remove("selected");
-        // modeBtns[0].classList.remove("selected");
-        // modeBtns[1].classList.remove("selected");
+    console.log(modeBtns);
+    modeBtns[i].addEventListener("click", function(){
+        removeSelectedClass();
         this.classList.add("selected");
+
+        if(modeBtns[i].textContent === "EASY") {
+            numSquares = 3;
+        } else if(modeBtns[i].textContent === "HARD") {
+            numSquares = 6;
+        }
+        reset();
+        //how many squares to show
+        //pick new colors
+        //update page to reflect changes
     })
 }
 
-//HIDE THE THREE BOXES AND COLOR THE OTHER 3 BOXES
-easyBtn.addEventListener("click", function(){
-    hardBtn.classList.remove("selected");
-    easyBtn.classList.add("selected")
-    numSquares = 3;
+function reset() {
     colors = generateRandomColorsArr(numSquares);
+    console.log(colors)
     colorToGuess = guessThisColor();
     colorDisplay.textContent = colorToGuess;
-    console.log(colors)
 
-    for( let i = 0; i < squares.length; i++){
-        if(colors[i]) {
+    for(let i = 0; i < squares.length; i++) {
+        if(colors[i]){
+            //add initial colors to squares
             squares[i].style.backgroundColor = colors[i];
+            squares[i].style.display = "inline-block";
         } else {
-            squares[i].style.display = "none"
+            squares[i].style.display = "none";
         }
-    } 
-})
+    }
+    messageDisplay.textContent="Guess what color is the RGB below...";
+    h1.style.backgroundColor = "#232323";
+    this.textContent = "New Colors"
+}
 
-hardBtn.addEventListener("click", function(){
-    easyBtn.classList.remove("selected");
-    hardBtn.classList.add("selected")
-    numSquares = 6;
-    colors = generateRandomColorsArr(numSquares);
-    colorToGuess = guessThisColor();
-    colorDisplay.textContent = colorToGuess;
-    console.log(colors)
+//HIDE THE THREE BOXES AND COLOR THE OTHER 3 BOXES
+// easyBtn.addEventListener("click", function(){
+//     hardBtn.classList.remove("selected");
+//     easyBtn.classList.add("selected")
+//     numSquares = 3;
+//     colors = generateRandomColorsArr(numSquares);
+//     colorToGuess = guessThisColor();
+//     colorDisplay.textContent = colorToGuess;
+//     console.log(colors)
+
+//     for( let i = 0; i < squares.length; i++){
+//         if(colors[i]) {
+//             squares[i].style.backgroundColor = colors[i];
+//         } else {
+//             squares[i].style.display = "none"
+//         }
+//     } 
+// })
+
+// hardBtn.addEventListener("click", function(){
+//     easyBtn.classList.remove("selected");
+//     hardBtn.classList.add("selected")
+//     numSquares = 6;
+//     colors = generateRandomColorsArr(numSquares);
+//     colorToGuess = guessThisColor();
+//     colorDisplay.textContent = colorToGuess;
+//     console.log(colors)
     
-    for( let i = 0; i < squares.length; i++){
-            squares[i].style.backgroundColor = colors[i];
-            squares[i].style.display = "inline-block"
-    } 
-})
+//     for( let i = 0; i < squares.length; i++){
+//             squares[i].style.backgroundColor = colors[i];
+//             squares[i].style.display = "inline-block"
+//     } 
+// })
 
 resetBtn.addEventListener("click", function(){
     colors = generateRandomColorsArr(numSquares);
@@ -76,9 +105,10 @@ resetBtn.addEventListener("click", function(){
     for(let i = 0; i < squares.length; i++) {
         //add initial colors to squares
         squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "inline-block";
     }
     messageDisplay.textContent="Guess what color is the RGB below...";
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
     this.textContent = "New Colors"
 })
 
@@ -137,4 +167,11 @@ function randomColor() {
     let b = Math.floor(Math.random() * 256);
     let rgbText =  "rgb(" + r + ", " + g + ", " + b + ")"
     return rgbText;
+}
+
+//TO REMOVE THE SELECTED CLASS ON THE BUTTONS
+function removeSelectedClass(){
+    for(let i = 0; i < modeBtns.length; i++) {
+        modeBtns[i].classList.remove("selected");
+    }
 }
