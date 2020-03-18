@@ -14,7 +14,6 @@ let h1 = document.querySelector("h1");
 let hardBtn = document.querySelector("#hardBtn");
 let modeBtns = document.getElementsByClassName("mode");
 
-
 init();
 function init(){
     hardBtn.classList.add("selected");
